@@ -1,41 +1,41 @@
 # Luma
 
-Luma es un visor de fotografías de escritorio, ligero y multiplataforma para Windows y Linux. Está pensado para abrir y recorrer imágenes con rapidez, con atención especial a HEIC/HEIF de teléfonos Samsung. Su interfaz pone la fotografía en primer plano y mantiene los controles habituales a mano.
+Luma is a lightweight, cross-platform desktop photo viewer for Windows and Linux. It is designed for quickly browsing images, with a special focus on HEIC/HEIF photos from Samsung phones. Its interface keeps photography front and center while making common controls easy to reach.
 
-## Qué puedes hacer
+## Features
 
-- Añadir fotografías desde el selector de archivos o arrastrándolas a la ventana.
-- Ver imágenes JPG/JPEG, PNG y WebP directamente, y HEIC/HEIF mediante el decodificador del backend en Rust.
-- Abrir una foto en el visor, ajustar el zoom, desplazar la imagen ampliada y recorrer la colección.
-- Consultar propiedades como el formato, el tamaño, la fecha de modificación y las dimensiones.
-- Ver las coordenadas GPS guardadas en los metadatos EXIF. Si la foto tiene ubicación, puedes cargar un mapa de OpenStreetMap; solo entonces se envían solicitudes de mosaicos de esa zona al servicio.
-- Convertir una imagen a JPG, PNG o WebP y guardar una copia en Descargas. La conversión no modifica el original.
+- Add photos with the file picker or by dragging them into the window.
+- View JPG/JPEG, PNG, and WebP images directly, and HEIC/HEIF images through the Rust backend decoder.
+- Open photos in the viewer, adjust zoom, pan around enlarged images, and browse the collection.
+- Check image properties such as format, file size, modification date, and dimensions.
+- Read GPS coordinates from EXIF metadata. When a photo includes a location, you can load an OpenStreetMap map; map tiles are requested from the service only when you choose to load the map.
+- Convert an image to JPG, PNG, or WebP and save a copy to Downloads. Conversion never modifies the original.
 
-## Estado actual
+## Current status
 
-Luma está en desarrollo. Las fotografías añadidas se mantienen en la sesión actual de la app; todavía no se guardan en una biblioteca persistente ni se indexan carpetas automáticamente. Al cerrar o recargar la app, tendrás que volver a añadirlas.
+Luma is under development. Photos added to the app remain in the current session; they are not yet stored in a persistent library or indexed from folders automatically. After closing or reloading the app, you will need to add them again.
 
-La lectura y generación de vistas previas HEIC/HEIF se realiza localmente. El límite actual para el procesamiento HEIC es de 80 MB por archivo y 64 megapíxeles. La compatibilidad con variantes HEVC, perfiles de color y metadatos puede depender del archivo y todavía requiere pruebas con una colección amplia de fotografías.
+HEIC/HEIF reading and preview generation happen locally. The current HEIC processing limits are 80 MB per file and 64 megapixels. Support for HEVC variants, color profiles, and metadata can vary by file and still needs testing with a broader photo collection.
 
-## Tecnologías
+## Technology stack
 
-- **Interfaz:** React, TypeScript y Vite.
-- **Escritorio:** Tauri 2.
-- **Procesamiento de imágenes:** Rust, `image`, `heif-oxide` y `kamadak-exif`.
+- **Interface:** React, TypeScript, and Vite.
+- **Desktop framework:** Tauri 2.
+- **Image processing:** Rust, `image`, `heif-oxide`, and `kamadak-exif`.
 
-## Desarrollo
+## Development
 
-Necesitas Node.js, npm, Rust y las dependencias de escritorio requeridas por Tauri para tu sistema operativo.
+You need Node.js, npm, Rust, and the desktop dependencies required by Tauri for your operating system.
 
 ```sh
 npm install
 npx tauri dev
 ```
 
-Para compilar la interfaz:
+To build the frontend:
 
 ```sh
 npm run build
 ```
 
-Consulta la [guía oficial de prerrequisitos de Tauri](https://tauri.app/start/prerequisites/) para instalar los componentes necesarios en Windows o Linux.
+See the [official Tauri prerequisites guide](https://tauri.app/start/prerequisites/) for setup instructions for Windows and Linux.
